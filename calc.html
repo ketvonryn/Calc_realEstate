@@ -9,10 +9,15 @@
 </head>
 
 <body>
-    <h1>Calculadora de Amortização de Empréstimos PRICE (prestações iguais)</h1>
+    <h1>Calculadora de Amortização de Empréstimos</h1>
     <fieldset>
         <div>
             <div id="obg">
+                <strong>
+                    <input type="radio" name="tpAmort" value="pr" required /> PRICE (prestações iguais)
+                    <input type="radio" name="tpAmort" value="sac" required checked/> SAC (prestações decrescentes)
+                </strong>
+                <br><br>
                 Valor do Empréstimo: <input autofocus type="number" inputmode="numeric" id="valor" placeholder="00,00"
                     required oninput="formatarMoeda(this)" />
                 <br>
