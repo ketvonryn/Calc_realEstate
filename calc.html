@@ -4,43 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleCalc.css">
     <title>Calculadora Amortização Emprestimo | CODEIA </title>
 </head>
 
 <body>
-    <h1>Calculadora de Amortização de Empréstimos PRICE (prestações iguais)</h1>
-    <fieldset>
-        <div>
-            <div id="obg">
-                Valor do Empréstimo: <input autofocus type="number" inputmode="numeric" id="valor" placeholder="00,00"
-                    required oninput="formatarMoeda(this)" />
-                <br>
-                Numero de Parcelas: <input type="number" inputmode="numeric" id="parc" oninput="formatarInteiro(this)"
-                    placeholder="00" required />
-                <br>
-                Taxa de Juros: <input type="number" oninput="formatarPorcentagem(this)" inputmode="numeric" id="taxa"
-                    placeholder="00,00%" required />
-                <input type="radio" name="tpTx" value="aa" required /> Ao ano
-                <input type="radio" name="tpTx" value="am" required checked /> Ao mes
-                <br>
+    <div id="wrapper-body">
+        <a href="index.html" class="logo-link w-nav-brand"><img src="images/logo-f-transp.png" loading="lazy" sizes="217.59375px" height="80" alt="logo codeia" srcset="images/logo-f-transp-p-500.png 500w, images/logo-f-transp.png 816w" class="image"></a>
+        <h1>Calculadora de Amortização de Empréstimos</h1>
+        <fieldset>
+            <div>
+                <strong>
+                    <input type="radio" name="tpAmort" value="pr" required /> PRICE (prestações iguais)
+                    <input type="radio" name="tpAmort" value="sac" required checked/> SAC (prestações decrescentes)
+                </strong>
+                <div id="obg">
+                    <br>
+                    Valor do Empréstimo: <input autofocus type="number" inputmode="numeric" id="valor" placeholder="R$ 00,00"
+                        required oninput="formatarMoeda(this)" />
+                    <br>
+                    Numero de Parcelas: <input type="number" inputmode="numeric" id="parc" oninput="formatarInteiro(this)"
+                        placeholder="00" required />
+                    <br>
+                    Taxa de Juros: <input type="number" oninput="formatarPorcentagem(this)" inputmode="numeric" id="taxa"
+                        placeholder="00,00%" required />
+                    <input type="radio" name="tpTx" value="aa" required /> Ao ano
+                    <input type="radio" name="tpTx" value="am" required checked /> Ao mes
+                    <br>
+                </div>
+                Valor da Amortização (opcional): <input type="number" oninput="formatarMoeda(this)" inputmode="numeric"
+                    id="amort" placeholder="R$ 00,00" />
             </div>
-            Valor da Amortização (opcional): <input type="number" oninput="formatarMoeda(this)" inputmode="numeric"
-                id="amort" placeholder="00,00" />
-        </div>
-        <br>
-
-        <div id="btn">
-            <button id="calcular">Calcular</button>
-        </div>
-    </fieldset>
-    <br>
-    <div>
-        <fieldset id="resultado">
-
+            <div id="btn">
+                <button id="calcular">Calcular</button>
+            </div>
         </fieldset>
+        <br>
+        <div>
+            <fieldset>
+                <table id="result">
+                    <thead>
+                      <tr>
+                        <th>Número da Parcela</th>
+                        <th>Amortização Extra</th>
+                        <th>Valor da Parcela</th>
+                        <th>Juros</th>
+                        <th>Amortização Padrão</th>
+                        <th>Saldo Devedor</th>
+                      </tr>
+                    </thead>
+                    <tbody id="corpo-tabela">
+                        
+                    </tbody>
+                </table>
+
+            </fieldset>
+        </div>
     </div>
-    <script src="scripts.js"></script>
+    <script src="scriptsCalc.js"></script>
 </body>
 
 </html>
